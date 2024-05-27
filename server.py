@@ -3,7 +3,7 @@ from flask_socketio import SocketIO
 import json
 from firebase_admin import firestore, credentials, initialize_app
 
-from object_detection_service import find_detensions
+from object_detection_service import find_deviations
 
 app = Flask(__name__)
 sio = SocketIO(app, cors_allowed_origins="*")
@@ -18,7 +18,7 @@ db = firestore.client()
 def detension_finder():
     inspection = request.json['inspection']
     print("Got it", inspection)
-    result = find_detensions(inspectionId=inspection, db=db, firebase=firebase)
+    result = find_deviations(inspectionId=inspection, db=db, firebase=firebase)
     if (not result):
         return json.dumps({'success': False}), 500, {'ContentType': 'application/json'}
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
