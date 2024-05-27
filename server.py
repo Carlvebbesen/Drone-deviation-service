@@ -14,8 +14,8 @@ firebase = initialize_app(cred)
 db = firestore.client()
 
 
-@app.route("/generate/detension", methods=["POST"])
-def detension_finder():
+@app.route("/generate/deviation", methods=["POST"])
+def deviation_finder():
     inspection = request.json['inspection']
     print("Got it", inspection)
     result = find_deviations(inspectionId=inspection, db=db, firebase=firebase)
