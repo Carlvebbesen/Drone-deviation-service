@@ -22,9 +22,11 @@ This repository contains a Flask API service designed to detect deviations in ha
 
 1. Clone the repository:
    `git clone Drone-deviation-service`
-2. Install the prerequisite
-3. Start the flask server: `python3 server.py`
+2. Install flask and firebase sdk
+3. Add the firebase credentials file in `json` format, and match the filename with the import in `server.py`. Get the file by going to `service accounts -> generate new private key`
+4. Start the flask server: `flask --app server.py run`
 
 ### Notes
+
 - Ensure that your YOLO model weights (yolov9c.pt) are placed in the appropriate directory.
 - Modify the class list in the predict_and_detect function as needed to suit your application.

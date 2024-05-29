@@ -52,7 +52,6 @@ def find_deviations(inspectionId, db, firebase):
         success, img = cap.read()
         if (frameCounter % skipCount != 0):
             frameCounter += 1
-            print(f"skipping frame {frameCounter}")
             continue
         if frameCounter == 0 and not success:
             print("Could not read video from firebase, wrong id")
